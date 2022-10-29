@@ -1,0 +1,1 @@
+this is a small personal exercise in learning how to build interactive programs in python. it will probably be very janky but it is okay!
