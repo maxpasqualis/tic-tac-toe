@@ -10,7 +10,9 @@ class Board:
 
     def check_move_validity(self, x, y):
         # helper function - checks if the specified move can be made
-        pass
+        if not self.board[x][y]:
+            return True
+        return False
 
     def make_move(self, x, y, player):
         # takes in xy coords of desired marker position and a Player instance

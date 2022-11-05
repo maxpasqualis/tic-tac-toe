@@ -10,9 +10,9 @@ def test_board_initialization():
     for i in range(3):
         assert list(b[i]) == [0, 0, 0]
 
-@pytest.mark.skip
-def test_valid_move_is_true__empty_board():
-    b = Board().board
+# @pytest.mark.skip
+def test_valid_move_is_true():
+    b = Board()
     result = b.check_move_validity(1, 1)
     result2 = b.check_move_validity(0, 2)
     result3 = b.check_move_validity(2, 1)
@@ -21,9 +21,22 @@ def test_valid_move_is_true__empty_board():
     assert result2
     assert result3
 
-@pytest.mark.skip
-def test_valid_move_is_true__populated_board():
-    pass
+# @pytest.mark.skip
+def test_valid_and_invalid_moves():
+    b = Board()
+    b.board = np.array([
+        [1, 0, 0],
+        [0, 0, 1],
+        [0, 1, 0]])
+    valid_move1 = b.check_move_validity(0, 1)
+    valid_move2 = b.check_move_validity(2, 2)
+    invalid_move1 = b.check_move_validity(0, 0)
+    invalid_move2 = b.check_move_validity(1, 2)
+
+    assert valid_move1
+    assert valid_move2
+    assert not invalid_move1
+    assert not invalid_move2
 
 @pytest.mark.skip
 def test_move_puts_marker_in_empty_space():
